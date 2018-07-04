@@ -1,0 +1,49 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.toolbar {
+    height: 30px;                             /* CHANGE THE HEIGHT ONLY IF ABSOLUTELY NECCESSARY */
+    width: 100%;
+    background-color: rgb(231, 42, 222);    /* CHANGE THE COLOR TO ONE THAT MATCHES YOUR APP */
+}
+.toolbar i:last-of-type {
+    float: right;
+}
+.toolbar i {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.5);
+    padding: 4px;
+    margin: 3px;
+    border-radius: 4px;
+    width: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.panel {
+    background-color: rgb(0, 119, 255); /* CHANGE THE COLOR TO ONE THAT MATCHES YOUR APP */
+    flex-grow: 1;
+}
+.about {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.9);
+    text-align: center;
+    margin: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 300;
+    overflow-y: auto;
+}
+.about .close {
+    font-size: 2em;
+    cursor: pointer;
+}
