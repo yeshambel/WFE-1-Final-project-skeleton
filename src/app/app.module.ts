@@ -6,10 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 
+import { DonationComponent } from './components/donation/donation.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    WrapperComponent
+    WrapperComponent,
+    DonationComponent,
+   
   ],
   imports: [
     BrowserModule,

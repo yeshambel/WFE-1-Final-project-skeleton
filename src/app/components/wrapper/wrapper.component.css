@@ -26,8 +26,9 @@
     cursor: pointer;
 }
 .panel {
-    background-color: rgb(0, 119, 255); /* CHANGE THE COLOR TO ONE THAT MATCHES YOUR APP */
+    background-color: rgb(255, 255, 255); /* CHANGE THE COLOR TO ONE THAT MATCHES YOUR APP */
     flex-grow: 1;
+    overflow-y: auto;
 }
 .about {
     position: absolute;
@@ -47,3 +48,4 @@
     font-size: 2em;
     cursor: pointer;
 }
+ 

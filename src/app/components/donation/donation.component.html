@@ -1,0 +1,89 @@
+<ul class="cashbtn">
+    <li><button (click)="showCashPage()" class="cashbtn" >Cash</button></li>
+    <li><button (click)="showinkindPage()" class="cashbtn">Inkind</button></li>
+    
+  </ul>
+
+<div class="donate" *ngIf="showCashPageprofile">
+   
+    <!-- Our Ortho. church relies on small donations from believers. Hence donate and strengthen our church service.  -->
+    <p> Our church income totally relies on donation. Donate as you want as you like by clicking the amount you want
+        to donate or you can write the amount on the other field.
+    </p><hr>
+    <ul class="Num-button">
+        <li><button (click)="insert(1)">&nbsp;1&#8364;</button></li>
+        <li><button (click)="insert(5)"> &nbsp;5&#8364;</button></li>
+        <li><button (click)="insert(10)">10&#8364;</button></li>
+        <li><button (click)="insert(15)">15&#8364;</button></li>
+        <li><button (click)="insert(20)">20&#8364;</button></li>
+        <li><button (click)="insert(50)">50&#8364;</button></li>
+        <li><button (click)="insert(90)">90&#8364;</button></li>
+        <li><button (click)="insert(100)">100&#8364;</button></li>
+        <li><button (click)="insert(200)">200&#8364;</button></li>
+        <li><button (click)="insert(500)">500&#8364;</button></li>
+        <li><button (click)="insert(800)">800&#8364;</button></li>
+        <li><button (click)="insert(1000)">1000&#8364;</button></li>
+        <li><span><b>Others:</b></span> <input type="number" [(ngModel)]="amount" 
+            style="width: 60px;height: 20px; color: blueviolet; font-size: 10px;">
+       <span>&#8364;</span>  <button class="enterbtn" style="width: 40px; height: 25px;" (click)="createProfile()">
+            Enter</button></li>
+      </ul>
+</div>
+
+
+<div class="profile-container" *ngIf="showProfile">
+        <form action="action_page.php">
+            <div class="imgcontainer">
+              <img src="assets/images.jpg" alt="Avatar" class="avatar"
+              
+              style= "width:50px; height:25px; position: absolute; left:200px; top: 1px; border-radius: 50%;">
+              </div>
+              <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT4YROC8VvFSpBOM8d3qV2-7dinkDykGJhy4R4AyIP_-A08GcB" alt="Avatar" class="avatar"> -->
+          
+            <div class="container" >
+              <label for="fname"><b>First Name</b></label>
+              <input type="text" placeholder="Enter fname" name="fname" required>
+        
+              <label for="uname"><b>Last Name</b></label>
+              <input type="text" placeholder="Enter lname" name="lname" required>
+        
+              <label for="uname"><b>Amount Donated &nbsp;</b></label>
+              <input type="number" placeholder="Enter amount Donated" name="Donate" 
+              required [(ngModel)]="amount">
+        
+              <label for="uname"><b>Card Number &nbsp;</b></label>
+              <input type="number" placeholder="Enter cardnumber" name="cardnumber" required>
+              
+              <label for="uname"><b>User Email</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+          
+              <button type="submit" class="sub-button">Submit Form</button>
+              <label>
+                <button class="signup"><a href="#">Sign Up</a></button>
+              </label>
+            </div>
+          
+            <div class="container">
+              <button type="button" class="cancelbtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div  *ngIf="showinkindPageprofile">
+       <div>
+         <ul>
+           <li *ngFor="let k of kind" class="inkind-container">
+              <img src="assets/{{k.image}}" style="width: 150px; height:150px;padding:20px;">
+              
+                  <h5><button style="width: 60px; height: 30px; background-color:red;color:blanchedalmond">
+                      Donate</button></h5>
+                    <h5>{{k.type}}</h5> 
+                    
+                    
+           </li>
+         </ul>
+       </div>
+        </div>
+        
