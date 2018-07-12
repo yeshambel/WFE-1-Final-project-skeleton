@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 import { DonationComponent } from './components/donation/donation.component';
+import { ListDonationComponent } from './components/list-donation/list-donation.component';
+import { listService } from './services/list.service';
+
+
 
 
 
@@ -15,6 +19,7 @@ import { DonationComponent } from './components/donation/donation.component';
     AppComponent,
     WrapperComponent,
     DonationComponent,
+    ListDonationComponent,
    
   ],
   imports: [
@@ -22,7 +27,7 @@ import { DonationComponent } from './components/donation/donation.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [listService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

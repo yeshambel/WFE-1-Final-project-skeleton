@@ -1,0 +1,26 @@
+import { Component, OnInit, Input, } from '@angular/core';
+import { Donation } from '../../models/donation';
+import { listService } from '../../services/list.service';
+
+
+@Component({
+  selector: 'app-list-donation',
+  templateUrl: './list-donation.component.html',
+  styleUrls: ['./list-donation.component.css']
+})
+export class ListDonationComponent implements OnInit {
+    list_Donation: boolean= false;
+    list:Donation[];
+    @Input() showProfile: boolean = false;
+
+  constructor(private listofDonations:listService) { 
+    this.list = this.listofDonations.getLists();
+  }
+
+  ngOnInit() {
+  
+  }
+  listofDonation(){
+    this.list_Donation = !this.list_Donation;
+  }
+}

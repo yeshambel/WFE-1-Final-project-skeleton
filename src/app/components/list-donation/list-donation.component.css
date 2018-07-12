@@ -1,0 +1,16 @@
+.list-donation{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: chartreuse;
+    color: blue;
+    height: 30px; 
+}
+table{
+    margin: 10px;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td{
+    border: 1px solid blue;
+}

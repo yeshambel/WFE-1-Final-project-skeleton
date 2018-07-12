@@ -1,0 +1,25 @@
+<button class="list-donation" (click)="listofDonation()">
+  list-donation 
+</button>
+<div *ngIf="list_Donation">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Amount Donated</th>
+      <th>Card Number</th>
+      <th>User Email</th>
+      <th>Passward</th>
+    </tr>
+    <tr *ngFor="let l of list">
+      <td>{{l.id}}</td>
+      <td>{{l.firstname}}</td>
+      <td>{{l.lastname}}</td>
+      <td>{{l.amountdonated}}</td>
+      <td>{{l.cardnumber}}</td>
+      <td>{{l.useremail}}</td>
+      <td>{{l.passward}}</td>
+    </tr>
+  </table>
+</div>

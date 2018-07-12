@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { resetFakeAsyncZone } from '../../../../node_modules/@angular/core/testing';
+
 
 @Component({
   selector: 'app-donation',
@@ -47,12 +49,14 @@ export class DonationComponent implements OnInit {
   showProfile: boolean = false;
   showCashPageprofile: boolean= true;
   showinkindPageprofile: boolean= false;
-  showform: boolean = false;
-    constructor() { }
-    
+  // showform: boolean = false;
+  donateDetail: boolean = false;
+  @Output() outputtoparent = new EventEmitter<boolean>();
   
-    ngOnInit() {
-    }
+  constructor() { }
+
+  ngOnInit() {
+  }
     getamout(){return this.amount;}
     insert(x: number) {
       if (this.amount === '0') {
@@ -73,10 +77,26 @@ export class DonationComponent implements OnInit {
       this.showCashPageprofile =!this.showCashPageprofile;
       this.showinkindPageprofile= false;
       this.showProfile =false;
+      this.donateDetail = false;
     }
     showinkindPage(){
       this.showinkindPageprofile = true;
       this.showCashPageprofile = false;
       this.showProfile =false;
+    }
+    donateProfile(){
+      this.donateDetail = true;
+      this.showinkindPageprofile = false;
+      this.showCashPageprofile = false;
+    }
+    cancel(){
+      this.showProfile =false;
+       this.showCashPageprofile = true;
+      
+
+    }
+    oncancel(){
+      this.donateDetail = false;
+      this.showinkindPageprofile = true;
     }
 }
