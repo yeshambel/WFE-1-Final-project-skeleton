@@ -9,10 +9,16 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { DonationComponent } from './components/donation/donation.component';
 import { ListDonationComponent } from './components/list-donation/list-donation.component';
 import { listService } from './services/list.service';
+import { Routes, RouterModule} from '@angular/router'
 
 
 
+const appRoutes:Routes = [
+  { path: ' ', component:WrapperComponent },
+  { path: 'create', component:DonationComponent },
+  { path: 'list', component:ListDonationComponent },
 
+];
 
 @NgModule({
   declarations: [
@@ -25,7 +31,8 @@ import { listService } from './services/list.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [listService],
   bootstrap: [AppComponent]

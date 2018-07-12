@@ -113,9 +113,10 @@ export class DonationComponent implements OnInit {
       this.donateDetail = false;
       this.showinkindPageprofile = true;
     }
-    saveDonation(profile:Donation):void{
+    saveDonation(profile):void{
       // console.log(proForm.value);
       this.listofDonations.save(this.profile);
       alert("Thankyou for your donation");
+      
     }
 }

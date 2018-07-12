@@ -7,6 +7,15 @@
     top: 0;
     bottom: 0;
 }
+ nav ul li {
+text-decoration: none;
+float: left;
+display: block;
+padding:0px  6px;
+margin:0px;
+font-size: 10px; 
+
+}
 .toolbar {
     height: 30px;                             /* CHANGE THE HEIGHT ONLY IF ABSOLUTELY NECCESSARY */
     width: 100%;

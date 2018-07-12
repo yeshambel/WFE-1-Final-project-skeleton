@@ -1,12 +1,22 @@
 <div class="flex-container">
     <div class="toolbar">
-            
+           
         <i (click)="showAbout=true" class="fas fa-info"></i>
-        <b>DONATION App</b> 
+        <!-- <b>DONATION App</b>  -->
+        
+        
     </div>
+    <nav>
+            <ul>
+                    <li> <a routerLink="/">Home</a></li>
+                    <li> <a routerLink="/create">create</a></li>
+                    <li> <a routerLink="/list">list</a></li>
+                </ul>
+    </nav>
     <div class="panel">
-          <app-donation ></app-donation>
-          <app-list-donation> </app-list-donation> 
+            <router-outlet></router-outlet>
+          <!-- <app-donation ></app-donation> -->
+          <!-- <app-list-donation> </app-list-donation>  -->
            <!-- *ngIf="showAbout" -->
          
         <!-- put here your component -->
