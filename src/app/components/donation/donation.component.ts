@@ -1,5 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { resetFakeAsyncZone } from '../../../../node_modules/@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { Donation } from '../../models/donation';
+import { listService } from '../../services/list.service';
+
+
 
 
 @Component({
@@ -8,6 +11,17 @@ import { resetFakeAsyncZone } from '../../../../node_modules/@angular/core/testi
   styleUrls: ['./donation.component.css']
 })
 export class DonationComponent implements OnInit {
+  private profile:Donation= {
+   
+    firstname:null,
+    lastname:null,
+    amountdonated:null,
+    cardnumber:null,
+    useremail: null,
+    password: null,
+    id:null
+  };
+
   private kind =[{
     type:'Bible Book',
     image:'Bible.jpg'
@@ -51,9 +65,9 @@ export class DonationComponent implements OnInit {
   showinkindPageprofile: boolean= false;
   // showform: boolean = false;
   donateDetail: boolean = false;
-  @Output() outputtoparent = new EventEmitter<boolean>();
   
-  constructor() { }
+  
+  constructor(private listofDonations:listService){ }
 
   ngOnInit() {
   }
@@ -98,5 +112,10 @@ export class DonationComponent implements OnInit {
     oncancel(){
       this.donateDetail = false;
       this.showinkindPageprofile = true;
+    }
+    saveDonation(profile:Donation):void{
+      // console.log(proForm.value);
+      this.listofDonations.save(this.profile);
+      alert("Thankyou for your donation");
     }
 }

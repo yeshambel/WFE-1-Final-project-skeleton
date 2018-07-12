@@ -4,7 +4,8 @@ import { Donation } from '../models/donation';
  @Injectable()
 export class listService {
 
-    getLists(): Donation[] {return [ 
+    // getLists(): Donation[] {return [ 
+    private listDonation:Donation[] =[
     {
         id: 1,
         firstname: "abebe",
@@ -12,7 +13,7 @@ export class listService {
        amountdonated: 50,
         cardnumber: 34534,
        useremail: "dgdgf@yahoo.com",
-       passward: "rfsf534"
+       password: "rfsf534"
      },
      {
         id: 3,
@@ -21,7 +22,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 4,
@@ -30,7 +31,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 5,
@@ -39,7 +40,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 6,
@@ -48,7 +49,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 7,
@@ -57,7 +58,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 8,
@@ -66,7 +67,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 9,
@@ -75,7 +76,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 10,
@@ -84,7 +85,7 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      },
      {
         id: 11,
@@ -93,8 +94,13 @@ export class listService {
        amountdonated: 500,
         cardnumber: 349534,
        useremail: "dgf@yahoo.com",
-       passward: "ruuyf534"
+       password: "ruuyf534"
      }
  ];
+ getDonation():Donation[]{
+   return this.listDonation;
+ }
+ save(profile:Donation){
+   this.listDonation.push(profile);
  }
 }

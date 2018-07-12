@@ -4,6 +4,6 @@ export class Donation {
   amountdonated: number ;
   cardnumber: number;
   useremail: string ;
-  passward: string ;
+  password: string ;
   id:number;
 }

@@ -32,7 +32,7 @@
 
 
 <div class="profile-container" *ngIf="showProfile">
-        <form #profileForm="ngForm">
+        <form #profileForm="ngForm" (ngSubmit)="saveDonation()">
             <div class="imgcontainer">
               <img src="assets/images.jpg" alt="Avatar" class="avatar"
               
@@ -41,6 +41,9 @@
              
           
             <div class="container" >
+              <label for="IdNumber"><b>Id Number</b></label>
+              <input type="text" placeholder="Enter fname" name="id" [(ngModel)]= "IdNumber" required>
+        
               <label for="FirstName"><b>First Name</b></label>
               <input type="text" placeholder="Enter fname" name="firstname" [(ngModel)]= "FirstName" required>
         
@@ -60,7 +63,7 @@
               <label for="Password"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="Password" required>
           
-              <button type="submit" class="sub-button">Submit</button>
+              <button type="submit" class="sub-button">save</button>
               <label>
                 <button class="signup"><a href="#">Sign Up</a></button>
               </label>
@@ -118,7 +121,7 @@
                       <label for="password"><b>Password</b></label>
                       <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
                   
-                      <button type="submit" class="sub-button">Submit</button>
+                      <button type="submit" class="sub-button" (click)="saveDonation()">Submit</button>
                       <label>
                         <button class="signup"><a href="#">Sign Up</a></button>
                       </label>

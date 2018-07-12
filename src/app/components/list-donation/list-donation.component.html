@@ -2,6 +2,7 @@
   list-donation 
 </button>
 <div *ngIf="list_Donation">
+  <h1 style="color: blue; text-align: center; margin: 0px;padding:0px;"> List of Finacial Donations</h1>
   <table>
     <tr>
       <th>ID</th>
@@ -10,7 +11,7 @@
       <th>Amount Donated</th>
       <th>Card Number</th>
       <th>User Email</th>
-      <th>Passward</th>
+      <th>Password</th>
     </tr>
     <tr *ngFor="let l of list">
       <td>{{l.id}}</td>
@@ -19,7 +20,28 @@
       <td>{{l.amountdonated}}</td>
       <td>{{l.cardnumber}}</td>
       <td>{{l.useremail}}</td>
-      <td>{{l.passward}}</td>
+      <td>{{l.password}}</td>
+    </tr>
+  </table>
+  <h1 style="color: blue; text-align: center; margin: 0px;padding:0px;"> List of Material Donations</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Amount Donated</th>
+      <th>Card Number</th>
+      <th>User Email</th>
+      <th>Password</th>
+    </tr>
+    <tr *ngFor="let l of list">
+      <td>{{l.id}}</td>
+      <td>{{l.firstname}}</td>
+      <td>{{l.lastname}}</td>
+      <td>{{l.amountdonated}}</td>
+      <td>{{l.cardnumber}}</td>
+      <td>{{l.useremail}}</td>
+      <td>{{l.password}}</td>
     </tr>
   </table>
 </div>
