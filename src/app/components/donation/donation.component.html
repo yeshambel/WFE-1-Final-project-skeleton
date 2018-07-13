@@ -3,10 +3,10 @@
     <li><button (click)="showinkindPage()" class="cashbtn">Inkind</button></li>
     
   </ul>
-  
+  <h3 class="information"> The amount you donated is:{{amount}} &#8364;</h3 >
 <div class="donate" *ngIf="showCashPageprofile">
    
-    <!-- Our Ortho. church relies on small donations from believers. Hence donate and strengthen our church service.  -->
+    
     <p> Our church income totally relies on donation. Donate as you want as you like by clicking the amount you want
         to donate or you can write the amount on the other field.
     </p><hr>
@@ -28,17 +28,21 @@
        <span>&#8364;</span>  <button class="enterbtn" style="width: 40px; height: 25px;" (click)="createProfile()">
             Enter</button></li>
       </ul>
-</div>
-
+      
+</div >
+<div class="imgpreview" *ngIf="showCashPageprofile">
+  <img src="assets/evolution.jpg" style="width:450px; height: 200px;">
+  </div>
 
 <div class="profile-container" *ngIf="showProfile">
+    
         <form #profileForm="ngForm" (ngSubmit)="saveDonation()">
             <div class="imgcontainer">
+               
               <img src="assets/images.jpg" alt="Avatar" class="avatar"
-              
-              style= "width:50px; height:25px; position: absolute; left:200px; top: 1px; border-radius: 50%;">
-              </div>
-             
+              style= "width:30px; height:20px; position: absolute; left:200px; top: 1px; border-radius: 50%;">             
+            </div>
+            
           
             <div class="container" >
               <label for="IdNumber"><b>Id Number</b></label>
@@ -63,7 +67,7 @@
               <label for="Password"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="Password" required>
           
-              <button type="submit" class="sub-button">save</button>
+              <button type="submit" class="sub-button">Save</button>
               <label>
                 <button class="signup"><a href="#">Sign Up</a></button>
               </label>
@@ -73,7 +77,7 @@
               <button type="button" class="cancelbtn" (click)="cancel()">Cancel</button>
             </div>
           </form>
-          {{profileForm.value|json}}
+          
         </div>
         <div  *ngIf="showinkindPageprofile">
        <div>
@@ -92,7 +96,7 @@
         
         <div *ngIf="donateDetail">
             <div class="profile-container">
-                <form #donateForm="ngForm">
+                <form #donateForm="ngForm" (ngSubmit)= "saveDonation()">
                     {{donateForm.value|json}}
                     <div class="imgcontainer">
                       <img src="assets/images.jpg" alt="Avatar" class="avatar"
@@ -121,14 +125,14 @@
                       <label for="password"><b>Password</b></label>
                       <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
                   
-                      <button type="submit" class="sub-button" (click)="saveDonation()">Submit</button>
+                      <button type="submit" class="sub-button">Save</button>
                       <label>
                         <button class="signup"><a href="#">Sign Up</a></button>
                       </label>
                     </div>
                   
                     <div class="container">
-                      <button type="button" class="cancelbtn" (click)="oncancel()">Cancel</button>
+                      <button type="button" class="cancelbtn" (click)="cancel()">Cancel</button>
                     </div>
                   </form>
                   

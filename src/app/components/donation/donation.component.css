@@ -43,7 +43,8 @@ hr{
     color:white;
 }
 b{
-    font-size: 8px;
+    font-size: 6px;
+    margin: 0 1px;
 } 
 span{
     font-size: 10px;
@@ -68,7 +69,7 @@ input[type=text], [type=number], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 8px;
+    font-size: 6px;
 }
 
 .sub-button {
@@ -86,33 +87,35 @@ button:hover {
 .cancelbtn {
     position: absolute;
     right:1px;
-    top:200px;
+    bottom:0px;
     width: 50px;
     height:20px;
     padding: 1px;
     background-color: #f44336;
     color: #f1f1f1;
 }
+
  .signup{
     position: absolute;
     left:1px;
-    top:200px;
+    bottom:0px;
     width: 50px;
     height:20px;
     padding: 1px;
-    background-color: rgb(28, 28, 146);
-    color: white;
+    background-color: rgb(209, 209, 214);
+    color:black;
 }
 
 .imgcontainer {
     text-align: center;
     width: 15%;
    
-    margin: 1px;
+    margin: 0px;
 } 
  .container {
     padding: 1px;
     font-size: 6px;
+    
 } 
 
 span.psw {
@@ -134,5 +137,16 @@ div ul li .inkind-container{
 button, .cashbtn{
     padding: 0px;
     margin: 0px;
-
+}
+.imgpreview{
+margin: 1px;
+position: absolute; 
+left:215px; 
+top: 85px;
+}
+.information{
+    position: absolute;
+    left:350px;
+    top:40px;
+    color:brown;
 }

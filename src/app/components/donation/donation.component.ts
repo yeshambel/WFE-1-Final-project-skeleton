@@ -112,6 +112,8 @@ export class DonationComponent implements OnInit {
     oncancel(){
       this.donateDetail = false;
       this.showinkindPageprofile = true;
+      this.amount =='0';
+    
     }
     saveDonation(profile):void{
       // console.log(proForm.value);

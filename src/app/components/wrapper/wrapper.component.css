@@ -7,14 +7,17 @@
     top: 0;
     bottom: 0;
 }
- nav ul li {
-text-decoration: none;
+
+nav ul li {
 float: left;
 display: block;
-padding:0px  6px;
+padding:0px  6px; 
 margin:0px;
-font-size: 10px; 
+font-size: 14px; 
 
+}
+a{
+    text-decoration: none;
 }
 .toolbar {
     height: 30px;                             /* CHANGE THE HEIGHT ONLY IF ABSOLUTELY NECCESSARY */
