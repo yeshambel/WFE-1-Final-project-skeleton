@@ -20,7 +20,7 @@ export class ListDonationComponent implements OnInit {
     this.list = this.listofDonations.getDonation();
     
   }
-  listofDonation(){
-    this.list_Donation = !this.list_Donation;
-  }
+  // listofDonation(){
+  //   this.list_Donation = !this.list_Donation;
+  // }
 }

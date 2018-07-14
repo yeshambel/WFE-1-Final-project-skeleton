@@ -14,8 +14,8 @@ import { Routes, RouterModule} from '@angular/router'
 
 
 const appRoutes:Routes = [
-  { path: ' ', component:WrapperComponent },
-  { path: 'create', component:DonationComponent },
+   { path: ' ', component:WrapperComponent },
+  { path: 'donation-create', component:DonationComponent },
   { path: 'list', component:ListDonationComponent },
 
 ];

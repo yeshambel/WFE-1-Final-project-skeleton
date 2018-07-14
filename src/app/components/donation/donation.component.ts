@@ -12,14 +12,14 @@ import { listService } from '../../services/list.service';
 })
 export class DonationComponent implements OnInit {
   private profile:Donation= {
-   
+    id:null,
     firstname:null,
     lastname:null,
     amountdonated:null,
     cardnumber:null,
     useremail: null,
-    password: null,
-    id:null
+    password: null
+   
   };
 
   private kind =[{
@@ -112,7 +112,7 @@ export class DonationComponent implements OnInit {
     oncancel(){
       this.donateDetail = false;
       this.showinkindPageprofile = true;
-      this.amount =='0';
+      
     
     }
     saveDonation(profile):void{

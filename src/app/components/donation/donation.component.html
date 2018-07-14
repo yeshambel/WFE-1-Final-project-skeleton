@@ -3,7 +3,7 @@
     <li><button (click)="showinkindPage()" class="cashbtn">Inkind</button></li>
     
   </ul>
-  <h3 class="information"> The amount you donated is:{{amount}} &#8364;</h3 >
+  <h3 class="information" *ngIf="showProfile"> The amount you donated is:{{amount}} &#8364;</h3 >
 <div class="donate" *ngIf="showCashPageprofile">
    
     
@@ -46,31 +46,31 @@
           
             <div class="container" >
               <label for="IdNumber"><b>Id Number</b></label>
-              <input type="text" placeholder="Enter fname" name="id" [(ngModel)]= "IdNumber" required>
+              <input type="number" placeholder="Enter Id" name="id" [(ngModel)]= "profile.id" required>
         
               <label for="FirstName"><b>First Name</b></label>
-              <input type="text" placeholder="Enter fname" name="firstname" [(ngModel)]= "FirstName" required>
+              <input type="text" placeholder="Enter fname" name="firstname" [(ngModel)]= "profile.firstname" required>
         
               <label for="LastName"><b>Last Name</b></label>
-              <input type="text" placeholder="Enter lname" name="lalstname"[(ngModel)]= "LastName" required>
+              <input type="text" placeholder="Enter lname" name="lastname"[(ngModel)]= "profile.lastname" required>
         
               <label for="AmountDonated"><b>Amount Donated &nbsp;</b></label>
               <input type="number" placeholder="Enter amount Donated" name="amountdonated" 
-              required [(ngModel)]="amount">
+              required [(ngModel)]="profile.amountdonated">
         
               <label for="CardNumber"><b>Card Number &nbsp;</b></label>
-              <input type="number" placeholder="Enter cardnumber" name="cardnumber" [(ngModel)]="CardNumber" required>
+              <input type="number" placeholder="Enter cardnumber" name="cardnumber" [(ngModel)]="profile.cardnumber" required>
               
               <label for="UserEmail"><b>User Email</b></label>
-              <input type="text" placeholder="Enter Useremail" name="uneremail" [(ngModel)]="UserEmail"required>
+              <input type="text" placeholder="Enter Useremail" name="uneremail" [(ngModel)]="profile.useremail"required>
           
               <label for="Password"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="Password" required>
+              <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="profile.password" required>
           
               <button type="submit" class="sub-button">Save</button>
-              <label>
+              <!-- <label>
                 <button class="signup"><a href="#">Sign Up</a></button>
-              </label>
+              </label> -->
             </div>
           
             <div class="container">
@@ -83,7 +83,7 @@
        <div>
          <ul>
            <li *ngFor="let k of kind" class="inkind-container">
-              <img src="assets/{{k.image}}" style="width: 150px; height:150px;padding:20px;">
+              <img src="assets/Donation/{{k.image}}" style="width: 150px; height:150px;padding:20px;">
               
                   <h5><button style="width: 60px; height: 30px;
                      background-color:red;color:blanchedalmond" (click)="donateProfile()">
@@ -105,6 +105,9 @@
                       </div>
                                         
                     <div class="container" >
+                      <label for="IdNumber"><b>ID</b></label>
+                      <input type="number" placeholder="Enter Id" name="id" [(ngModel)]="IdNumber" required>
+                      
                       <label for="FirstName"><b>First Name</b></label>
                       <input type="text" placeholder="Enter fname" name="firstname" [(ngModel)]="FirstName" required>
                 
@@ -126,9 +129,9 @@
                       <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
                   
                       <button type="submit" class="sub-button">Save</button>
-                      <label>
+                      <!-- <label>
                         <button class="signup"><a href="#">Sign Up</a></button>
-                      </label>
+                      </label> -->
                     </div>
                   
                     <div class="container">
