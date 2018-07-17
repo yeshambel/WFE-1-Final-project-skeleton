@@ -1,10 +1,6 @@
-<!-- <button class="list-donation" (click)="listofDonation()">
-  list-donation 
-</button> -->
-<!-- <div >    *ngIf="list_Donation"> -->
-  <div>
-  <h1 style="color: blue; text-align: center; margin: 0px;padding:0px;"> List of Finacial Donations</h1>
-  <table>
+<h1 style="color: blue; text-align: center; margin:0px;padding:0px;"> List of Finacial Donations</h1>
+  <table class="table table-bordered">
+    <thead>
     <tr>
       <th>ID</th>
       <th>First Name</th>
@@ -12,8 +8,10 @@
       <th>Amount Donated</th>
       <th>Card Number</th>
       <th>User Email</th>
-      <th>Password</th>
+      <th>Credit Card</th>
     </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let l of list">
       <td>{{l.id}}</td>
       <td>{{l.firstname}}</td>
@@ -21,28 +19,35 @@
       <td>{{l.amountdonated}}</td>
       <td>{{l.cardnumber}}</td>
       <td>{{l.useremail}}</td>
-      <td>{{l.password}}</td>
+      <td>{{l.credit}}</td>
     </tr>
+  </tbody>
   </table>
+
+<div>
   <h1 style="color: blue; text-align: center; margin: 0px;padding:0px;"> List of Material Donations</h1>
-  <table>
+  <table class="table table-bordered" style="margin: auto;">
+    <thead>
     <tr>
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Amount Donated</th>
-      <th>Card Number</th>
+      <th>Home Adress</th>
+      <th>Estimated Amount</th>
       <th>User Email</th>
-      <th>Password</th>
+      <th>Donation Item</th>
     </tr>
-    <tr *ngFor="let l of list">
-      <td>{{l.id}}</td>
-      <td>{{l.firstname}}</td>
-      <td>{{l.lastname}}</td>
-      <td>{{l.amountdonated}}</td>
-      <td>{{l.cardnumber}}</td>
-      <td>{{l.useremail}}</td>
-      <td>{{l.password}}</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let k of kindList">
+      <td>{{k.id}}</td>
+      <td>{{k.firstname}}</td>
+      <td>{{k.lastname}}</td>
+      <td>{{k.homeadress}}</td>
+      <td>{{k.estimatedamount}}</td>
+      <td>{{k.useremail}}</td>
+      <td>{{k.item}}</td>
     </tr>
+  </tbody>
   </table>
 </div>

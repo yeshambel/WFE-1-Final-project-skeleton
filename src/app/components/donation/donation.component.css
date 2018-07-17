@@ -1,152 +1,31 @@
-.donate{
-    border: 1px solid #eeeaea;
-    width:200px;
-    height: 200px;
-    background-color: rgb(248,248,248);
-    position: absolute;
+.donate{ 
+    margin: 5px;
 }
-div, li{
+button, li{
     text-decoration: none;
     display: inline-block;
 }
-.Num-button{
-     margin: 1px;
-} 
 button{
-  background-color: rgba(122, 122, 133, 0.07);;
-  height: 20px;
-  width: 35px;
-  font-size: 8px;
-  color:blue;
-}
-h1{
-    font-size: 16px;
-    padding: 1px;
-    margin: 2px;
-     color: #eeeaea;
-     text-align: center;
-}
-p{
-    color: orangered;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 10px;
-    padding: 1px;
-    margin: 0;
-    text-align: justify;
+  height: 30px;
+  width: 55px;
 }
 hr{
     color: rgba(165, 158, 158, 0.884);
     margin: 1px;
 }
-.enterbtn{
-    background-color: green;
-    color:white;
-}
-b{
-    font-size: 6px;
-    margin: 0 1px;
-} 
-span{
-    font-size: 10px;
-}
-
-.profile-container{
-    position: absolute;
-    top: o;
-    right: 15px;
-    border: 1px solid #eeeaea;
-    width:650px;
-    height: 200px;
-}
-form {
+ form {
     border: 1px solid #f1f1f1;
-}
-
-input[type=text], [type=number], input[type=password] {
-    width: 100%;
-    padding: 1px 1px;
-    margin: 1px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 6px;
-}
-
-.sub-button {
-    background-color: rgb(68, 95, 69);
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
+}  
+ button:hover {
     opacity: 0.8;
-}
-
-.cancelbtn {
-    position: absolute;
-    right:1px;
-    bottom:0px;
-    width: 50px;
-    height:20px;
-    padding: 1px;
-    background-color: #f44336;
-    color: #f1f1f1;
-}
-
- .signup{
-    position: absolute;
-    left:1px;
-    bottom:0px;
-    width: 50px;
-    height:20px;
-    padding: 1px;
-    background-color: rgb(209, 209, 214);
-    color:black;
-}
-
-.imgcontainer {
-    text-align: center;
-    width: 15%;
-   
-    margin: 0px;
 } 
- .container {
-    padding: 1px;
-    font-size: 6px;
-    
-} 
-
-span.psw {
-    float: right;
-    padding-top: 1px;
-}
-div.inkind-container{
-    width: 400px;
-    height:200px;
-}
-h5{
-    display: block;
+ h5{
     text-align: center;
-    margin: 0;
-}
-div ul li .inkind-container{
-    border-right-color: rgb(141, 137, 137);
-}
-button, .cashbtn{
-    padding: 0px;
-    margin: 0px;
-}
-.imgpreview{
-margin: 1px;
-position: absolute; 
-left:215px; 
-top: 85px;
-}
+    margin: 1px;
+} 
 .information{
-    position: absolute;
-    left:350px;
-    top:40px;
-    color:brown;
+    color: blue;
+    border: 1px solid  rgba(165, 158, 158, 0.884);
+    background-color:rgb(240, 237, 232);
+    margin: 15px;
 }

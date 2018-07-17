@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Donation } from '../../models/donation';
 import { listService } from '../../services/list.service';
+import { kindService } from '../../services/kind.service';
+import { Kind } from '../../models/kind';
 
 
 @Component({
@@ -11,16 +13,14 @@ import { listService } from '../../services/list.service';
 export class ListDonationComponent implements OnInit {
     list_Donation: boolean= false;
     list:Donation[];
+    kindList:Kind[];
 
-  constructor(private listofDonations:listService) { 
-    
+  constructor(private listofDonations:listService,
+   private kindofDonations:kindService) {    
   }
 
   ngOnInit() {
     this.list = this.listofDonations.getDonation();
-    
-  }
-  // listofDonation(){
-  //   this.list_Donation = !this.list_Donation;
-  // }
+    this.kindList = this.kindofDonations.getkindDonation();  
+  } 
 }

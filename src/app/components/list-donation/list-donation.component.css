@@ -6,11 +6,3 @@
     color: blue;
     height: 30px; 
 }
-table{
-    margin: 10px;
-    border-collapse: collapse;
-    text-align: center;
-}
-th, td{
-    border: 1px solid blue;
-}

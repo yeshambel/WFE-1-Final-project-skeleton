@@ -10,11 +10,12 @@ import { DonationComponent } from './components/donation/donation.component';
 import { ListDonationComponent } from './components/list-donation/list-donation.component';
 import { listService } from './services/list.service';
 import { Routes, RouterModule} from '@angular/router'
+import { kindService } from './services/kind.service';
 
 
 
 const appRoutes:Routes = [
-   { path: ' ', component:WrapperComponent },
+  { path: '', redirectTo: '/donation-create', pathMatch: 'full' },
   { path: 'donation-create', component:DonationComponent },
   { path: 'list', component:ListDonationComponent },
 
@@ -26,7 +27,6 @@ const appRoutes:Routes = [
     WrapperComponent,
     DonationComponent,
     ListDonationComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,7 @@ const appRoutes:Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [listService],
+  providers: [listService, kindService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

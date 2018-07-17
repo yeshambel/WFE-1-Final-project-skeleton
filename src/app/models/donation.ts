@@ -1,9 +1,12 @@
 export class Donation {
-  firstname: string ;
-  lastname: string ;
-  amountdonated: number ;
-  cardnumber: number;
-  useremail: string ;
-  password: string ;
-  id:number;
+ constructor(
+  public id: number = undefined,
+  public firstname: string = '',
+  public lastname: string ='',
+  public amountdonated: number = undefined ,
+  public cardnumber: number = undefined,
+  public useremail: string ='',
+  public credit: string = ''  
+){}
+  
 }

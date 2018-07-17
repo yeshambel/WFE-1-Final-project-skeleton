@@ -3,98 +3,96 @@ import { Donation } from '../models/donation';
 
  @Injectable()
 export class listService {
-
-    // getLists(): Donation[] {return [ 
     private listDonation:Donation[] =[
     {
-        id: 1,
-        firstname: "abebe",
-       lastname: "alemu",
+         id: 1,
+        firstname: "Abebe",
+       lastname: "Alemu",
        amountdonated: 50,
         cardnumber: 34534,
        useremail: "dgdgf@yahoo.com",
-       password: "rfsf534"
+       credit: "Master Card"
      },
      {
-        id: 2,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+      id: 2,
+        firstname: "Kebede",
+       lastname: "Sisay",
+       amountdonated: 1200,
+        cardnumber: 5340,
+       useremail: "sisy@yahoo.com",
+       credit: "Visa Card"
      },
      {
         id: 3,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Gorge",
+       lastname: "Simth",
+       amountdonated: 3425,
+        cardnumber: 646545,
+       useremail: "smith@yahoo.com",
+       credit: "Paypall"
      },
      {
         id: 4,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Yannes",
+       lastname: "Yones",
+       amountdonated: 10,
+        cardnumber: 63455632,
+       useremail: "yannes@yahoo.com",
+       credit: "Visa Card"
      },
      {
         id: 5,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Elen",
+       lastname: "Petros",
+       amountdonated: 2000,
+        cardnumber: 56534,
+       useremail: "petros@yahoo.com",
+       credit: "Master Card"
      },
      {
         id: 6,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
+        firstname: "paula",
+       lastname: "Georgos",
+       amountdonated: 35422,
         cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+       useremail: "georges@yahoo.com",
+       credit : "Paypall"
      },
      {
         id: 7,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Rameres",
+       lastname: "Mack",
+       amountdonated: 20,
+        cardnumber: 3534,
+       useremail: "ramerse@yahoo.com",
+       credit: "Visa Card"
      },
      {
         id: 8,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Yorgos",
+       lastname: "Yannes",
+       amountdonated: 2500,
+        cardnumber: 22234,
+       useremail: "yannes@yahoo.com",
+       credit: "Master Card"
      },
      {
         id: 9,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Stefani",
+       lastname: "Mark",
+       amountdonated: 10,
+        cardnumber: 33534,
+       useremail: "stefani@yahoo.com",
+       credit: "Visa Card"
      },
      {
         id: 10,
-        firstname: "kebede",
-       lastname: "alemu",
-       amountdonated: 500,
-        cardnumber: 349534,
-       useremail: "dgf@yahoo.com",
-       password: "ruuyf534"
+        firstname: "Maria",
+       lastname: "Zufan",
+       amountdonated:1000,
+        cardnumber: 28883,
+       useremail: "maria@yahoo.com",
+       credit: "Visa Card"
      }
  ];
  getDonation():Donation[]{
@@ -103,4 +101,5 @@ export class listService {
  save(profile:Donation){
    this.listDonation.push(profile);
  }
+ 
 }

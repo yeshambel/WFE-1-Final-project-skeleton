@@ -1,143 +1,161 @@
-<ul class="cashbtn">
-    <li><button (click)="showCashPage()" class="cashbtn" >Cash</button></li>
-    <li><button (click)="showinkindPage()" class="cashbtn">Inkind</button></li>
-    
+<ul>
+    <div class="btn-group">
+    <li><button class="btn btn-primary" (click)="showCashPage()" class="cashbtn" >Cash</button></li>
+    <li><button class="btn btn-danger"(click)="showinkindPage()" class="cashbtn">kind</button></li>
+  </div>
   </ul>
-  <h3 class="information" *ngIf="showProfile"> The amount you donated is:{{amount}} &#8364;</h3 >
+   <h3 class="information" *ngIf="showProfile"> The amount you donated is:
+       <span style="color: brown"><b>{{amount}} &#8364;</b></span>. We kindly request you 
+       to fill this form and submit by clicking the save button too.
+   </h3 >
 <div class="donate" *ngIf="showCashPageprofile">
    
     
     <p> Our church income totally relies on donation. Donate as you want as you like by clicking the amount you want
         to donate or you can write the amount on the other field.
     </p><hr>
+    
     <ul class="Num-button">
-        <li><button (click)="insert(1)">&nbsp;1&#8364;</button></li>
-        <li><button (click)="insert(5)"> &nbsp;5&#8364;</button></li>
-        <li><button (click)="insert(10)">10&#8364;</button></li>
-        <li><button (click)="insert(15)">15&#8364;</button></li>
-        <li><button (click)="insert(20)">20&#8364;</button></li>
-        <li><button (click)="insert(50)">50&#8364;</button></li>
-        <li><button (click)="insert(90)">90&#8364;</button></li>
-        <li><button (click)="insert(100)">100&#8364;</button></li>
-        <li><button (click)="insert(200)">200&#8364;</button></li>
-        <li><button (click)="insert(500)">500&#8364;</button></li>
-        <li><button (click)="insert(800)">800&#8364;</button></li>
-        <li><button (click)="insert(1000)">1000&#8364;</button></li>
-        <li><span><b>Others:</b></span> <input type="number" [(ngModel)]="amount" 
-            style="width: 60px;height: 20px; color: blueviolet; font-size: 10px;">
-       <span>&#8364;</span>  <button class="enterbtn" style="width: 40px; height: 25px;" (click)="createProfile()">
-            Enter</button></li>
+        
+        <li><button type="button" class="btn btn-primary"(click)="insert(1)">1&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(5)">5&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(10)">10&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(15)">15&#8364;</button></li><br>
+        <li><button type="button" class="btn btn-primary"(click)="insert(20)">20&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(50)">50&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(90)">90&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(100)">100&#8364;</button></li><br>
+        <li><button type="button" class="btn btn-primary"(click)="insert(200)">200&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(500)">500&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(800)">800&#8364;</button></li>
+        <li><button type="button" class="btn btn-primary"(click)="insert(1000)">1000&#8364;</button></li><br>
+        <li><span><b>Others:</b></span> <input type="number" [(ngModel)]="amount" style="width: 80px; height: 30px;">
+       <span>&#8364;</span>  <button type="button" class="btn btn-success" 
+       (click)="createProfile()">Enter</button></li>
       </ul>
       
 </div >
-<div class="imgpreview" *ngIf="showCashPageprofile">
-  <img src="assets/evolution.jpg" style="width:450px; height: 200px;">
-  </div>
+  
+  <div class="panel-body" *ngIf="showProfile">
+      <form #profileForm="ngForm" (ngSubmit)="saveDonation()"> 
+          <div class="form-group">
+              <label for="fname">First Name:</label>
+              <input type="text"  class="form-control" id="fname" placeholder="Enter fname" 
+              name="firstname" [(ngModel)]= "profile.firstname" required>
+            </div>
 
-<div class="profile-container" *ngIf="showProfile">
-    
-        <form #profileForm="ngForm" (ngSubmit)="saveDonation()">
-            <div class="imgcontainer">
-               
-              <img src="assets/images.jpg" alt="Avatar" class="avatar"
-              style= "width:30px; height:20px; position: absolute; left:200px; top: 1px; border-radius: 50%;">             
+            <div class="form-group">
+              <label for="lname">Last Name:</label>
+              <input type="text" class="form-control" id="lname" placeholder="Enter lname"
+               name="lastname"[(ngModel)]= "profile.lastname" required>
             </div>
-            
-          
-            <div class="container" >
-              <label for="IdNumber"><b>Id Number</b></label>
-              <input type="number" placeholder="Enter Id" name="id" [(ngModel)]= "profile.id" required>
-        
-              <label for="FirstName"><b>First Name</b></label>
-              <input type="text" placeholder="Enter fname" name="firstname" [(ngModel)]= "profile.firstname" required>
-        
-              <label for="LastName"><b>Last Name</b></label>
-              <input type="text" placeholder="Enter lname" name="lastname"[(ngModel)]= "profile.lastname" required>
-        
-              <label for="AmountDonated"><b>Amount Donated &nbsp;</b></label>
-              <input type="number" placeholder="Enter amount Donated" name="amountdonated" 
+
+              <div class="form-group">
+              <label for="AmountDonated">Amount Donated:</label>
+              <input type="number"class="form-control" id="AmountDonated" placeholder="Enter amount Donated" 
+              name="amountdonated" 
               required [(ngModel)]="profile.amountdonated">
-        
-              <label for="CardNumber"><b>Card Number &nbsp;</b></label>
-              <input type="number" placeholder="Enter cardnumber" name="cardnumber" [(ngModel)]="profile.cardnumber" required>
-              
-              <label for="UserEmail"><b>User Email</b></label>
-              <input type="text" placeholder="Enter Useremail" name="uneremail" [(ngModel)]="profile.useremail"required>
-          
-              <label for="Password"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="profile.password" required>
-          
-              <button type="submit" class="sub-button">Save</button>
-              <!-- <label>
-                <button class="signup"><a href="#">Sign Up</a></button>
-              </label> -->
+               </div>
+
+              <div class="form-group">
+              <label for="card">Card Number:</label> &nbsp;<img src="assets/master.jpg" style="width: 60px;height: 30px;">
+              &nbsp; <img src="assets/visa.png" style="width: 60px;height: 30px;">
+              &nbsp;<img src="assets/paypall.jpg" style="width: 60px;height: 30px;">
+            
+              <input type="number" class="form-control" id="card" placeholder="Enter cardnumber"
+               name="cardnumber" [(ngModel)]="profile.cardnumber" required>
+               </div>              
+
+              <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" class="form-control" id="email" placeholder="Enter Useremail"
+               name="useremail" [(ngModel)]="profile.useremail"required>
             </div>
-          
-            <div class="container">
-              <button type="button" class="cancelbtn" (click)="cancel()">Cancel</button>
+            <div class="form-group">
+                <label for="credit">Credit Cards:</label> 
+               <select  id="credit" class="form-control" placeholder="select credit card" 
+                name="credit" [(ngModel)]="profile.credit" required>
+                <option>Matser Card</option>
+                <option>Visa Card</option>
+                <option>paypall</option>
+                </select>
+              </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
-          </form>
-          
+         </form>
         </div>
+  
         <div  *ngIf="showinkindPageprofile">
-       <div>
-         <ul>
-           <li *ngFor="let k of kind" class="inkind-container">
+            <h1 style="color: crimson;text-align: center;">Donate Now</h1>
+       <div *ngFor="let k of kind" class="col-sm-4">
+         <div class="thumbnail">   
               <img src="assets/Donation/{{k.image}}" style="width: 150px; height:150px;padding:20px;">
               
-                  <h5><button style="width: 60px; height: 30px;
+                  <h5><button style="width: 80px; height: 40px;
                      background-color:red;color:blanchedalmond" (click)="donateProfile()">
-                      Donate</button></h5>
+                      Donate now</button></h5>
                     <h5>{{k.type}}</h5>     
-           </li>
-         </ul>
+           </div> 
        </div>
         </div>
-        
-        <div *ngIf="donateDetail">
-            <div class="profile-container">
-                <form #donateForm="ngForm" (ngSubmit)= "saveDonation()">
-                    {{donateForm.value|json}}
-                    <div class="imgcontainer">
-                      <img src="assets/images.jpg" alt="Avatar" class="avatar"
-                      
-                      style= "width:50px; height:25px; position: absolute; left:200px; top: 1px; border-radius: 50%;">
+       
+            <div class="panel-body"  *ngIf="donateDetail">
+                    <h2 style="text-align: center; margin:0px;color: brown;">Donor Details</h2><hr>
+                <form #donateForm="ngForm" (ngSubmit)= "saveKindDonation()">
+                    <div class="form-group">
+                        <label for="fname">First Name:</label>
+                        <input type="text"  class="form-control" id="fname" placeholder="Enter fname" 
+                        name="firstname" [(ngModel)]= "donate.firstname" required>
                       </div>
-                                        
-                    <div class="container" >
-                      <label for="IdNumber"><b>ID</b></label>
-                      <input type="number" placeholder="Enter Id" name="id" [(ngModel)]="IdNumber" required>
+          
+                      <div class="form-group">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" class="form-control" id="lname" placeholder="Enter lname"
+                         name="lastname"[(ngModel)]= "donate.lastname" required>
+                      </div>
                       
-                      <label for="FirstName"><b>First Name</b></label>
-                      <input type="text" placeholder="Enter fname" name="firstname" [(ngModel)]="FirstName" required>
-                
-                      <label for="LastName"><b>Last Name</b></label>
-                      <input type="text" placeholder="Enter lname" name="lastname" [(ngModel)]="LasttName" required>
-                
-                      <label for="HomeAdress"><b>Home Adress &nbsp;</b></label>
-                      <input type="text" placeholder="Home Adress" name="homeadress" 
-                      [(ngModel)]="HomeAdress" required>
-      
-                      <label for="EstimatedAmount"><b>Estimated Amount in cash &nbsp;</b></label>
-                      <input type="number" placeholder="Estimated Amount in cash" name="estimatedamount" 
-                      [(ngModel)]="EstimatedAmount"  required>
-                      
-                      <label for="UserEmail"><b>User Email</b></label>
-                      <input type="text" placeholder="Enter Username" name="useremail" [(ngModel)]="UserEmail" required>
-                  
-                      <label for="password"><b>Password</b></label>
-                      <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
-                  
-                      <button type="submit" class="sub-button">Save</button>
-                      <!-- <label>
-                        <button class="signup"><a href="#">Sign Up</a></button>
-                      </label> -->
-                    </div>
-                  
-                    <div class="container">
-                      <button type="button" class="cancelbtn" (click)="cancel()">Cancel</button>
-                    </div>
-                  </form>
-                  
-        </div>
+                        <div class="form-group">
+                        <label for="homeadress">Home Adress:</label>
+                        <input type="text"class="form-control" id="homeadress" placeholder="Home adress" 
+                        name="homeadress" 
+                          required [(ngModel)]="donate.homeadress">
+                         </div>
+
+                        <div class="form-group">
+                        <label for="estimatedamount">Estimated Amount in cash:</label>
+                        <input type="number" class="form-control" id="estimatedamount" 
+                        placeholder="Estimated amount in cash"
+                         name="estimatedamount" [(ngModel)]="donate.estimatedamount" required>
+                         </div>              
+          
+                        <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" placeholder="Enter Useremail"
+                         name="useremail" [(ngModel)]="donate.useremail"required>
+                      </div>
+                      <div class="form-group">
+                        <label for="item">Donation Item:</label> 
+                       <select  id="item" class="form-control" placeholder="select the material you donate" 
+                        name="item" [(ngModel)]="donate.item" required>
+                        <option>Bible</option>
+                        <option>House</option>
+                        <option>Cloth</option>
+                        <option>Car</option>
+                        <option>Water</option>
+                        <option>Drug</option>
+                        <option>Food</option>
+                        <option>Church Materials</option>
+                        <option>other</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                          <button type="submit" class="btn btn-primary">Save</button>
+                      </div> 
+                   </form>
+                  </div>
+
+            
         

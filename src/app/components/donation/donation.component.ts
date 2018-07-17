@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Donation } from '../../models/donation';
 import { listService } from '../../services/list.service';
-
-
-
+import { kindService } from '../../services/kind.service';
+import { Kind } from '../../models/kind';
 
 @Component({
   selector: 'app-donation',
@@ -12,14 +11,23 @@ import { listService } from '../../services/list.service';
 })
 export class DonationComponent implements OnInit {
   private profile:Donation= {
-    id:null,
+    id:undefined,
     firstname:null,
     lastname:null,
     amountdonated:null,
     cardnumber:null,
     useremail: null,
-    password: null
+    credit: null
    
+  };
+  private donate:Kind ={
+    firstname: null,
+  lastname: null,
+  homeadress:null,
+  estimatedamount: null,
+  useremail: null,
+  item: null,
+  id:null
   };
 
   private kind =[{
@@ -63,11 +71,11 @@ export class DonationComponent implements OnInit {
   showProfile: boolean = false;
   showCashPageprofile: boolean= true;
   showinkindPageprofile: boolean= false;
-  // showform: boolean = false;
   donateDetail: boolean = false;
   
   
-  constructor(private listofDonations:listService){ }
+  constructor(private listofDonations:listService,
+  private kindofDonations:kindService){ }
 
   ngOnInit() {
   }
@@ -97,28 +105,20 @@ export class DonationComponent implements OnInit {
       this.showinkindPageprofile = true;
       this.showCashPageprofile = false;
       this.showProfile =false;
+      this.donateDetail = false;
     }
     donateProfile(){
       this.donateDetail = true;
       this.showinkindPageprofile = false;
       this.showCashPageprofile = false;
     }
-    cancel(){
-      this.showProfile =false;
-       this.showCashPageprofile = true;
-      
-
-    }
-    oncancel(){
-      this.donateDetail = false;
-      this.showinkindPageprofile = true;
-      
-    
-    }
     saveDonation(profile):void{
-      // console.log(proForm.value);
       this.listofDonations.save(this.profile);
+      alert("Thankyou for your donation"); 
+    }
+    saveKindDonation(donate): void{
+      this.kindofDonations.save(this.donate);
       alert("Thankyou for your donation");
-      
+
     }
 }
