@@ -1,16 +1,17 @@
 <ul>
     <div class="btn-group">
     <li><button class="btn btn-primary" (click)="showCashPage()" class="cashbtn" >Cash</button></li>
-    <li><button class="btn btn-danger"(click)="showinkindPage()" class="cashbtn">kind</button></li>
+    <li><button class="btn btn-danger"(click)="showinkindPage()" class="cashbtn">kind</button></li> 
   </div>
   </ul>
+
    <h3 class="information" *ngIf="showProfile"> The amount you donated is:
        <span style="color: brown"><b>{{amount}} &#8364;</b></span>. We kindly request you 
        to fill this form and submit by clicking the save button too.
    </h3 >
+
 <div class="donate" *ngIf="showCashPageprofile">
    
-    
     <p> Our church income totally relies on donation. Donate as you want as you like by clicking the amount you want
         to donate or you can write the amount on the other field.
     </p><hr>
@@ -61,7 +62,6 @@
               <label for="card">Card Number:</label> &nbsp;<img src="assets/master.jpg" style="width: 60px;height: 30px;">
               &nbsp; <img src="assets/visa.png" style="width: 60px;height: 30px;">
               &nbsp;<img src="assets/paypall.jpg" style="width: 60px;height: 30px;">
-            
               <input type="number" class="form-control" id="card" placeholder="Enter cardnumber"
                name="cardnumber" [(ngModel)]="profile.cardnumber" required>
                </div>              
@@ -69,10 +69,10 @@
               <div class="form-group">
               <label for="email">Email:</label>
               <input type="text" class="form-control" id="email" placeholder="Enter Useremail"
-               name="useremail" [(ngModel)]="profile.useremail"required>
+               name="useremail" [(ngModel)]="profile.useremail"required email>
             </div>
             <div class="form-group">
-                <label for="credit">Credit Cards:</label> 
+                <label for="credit">Credit Cards:</label>  
                <select  id="credit" class="form-control" placeholder="select credit card" 
                 name="credit" [(ngModel)]="profile.credit" required>
                 <option>Matser Card</option>
@@ -82,13 +82,15 @@
               </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary" style="width:80px;"
+               [disabled]="!profileForm.valid" >Submit</button>
             </div>
          </form>
         </div>
   
         <div  *ngIf="showinkindPageprofile">
             <h1 style="color: crimson;text-align: center;">Donate Now</h1>
+            
        <div *ngFor="let k of kind" class="col-sm-4">
          <div class="thumbnail">   
               <img src="assets/Donation/{{k.image}}" style="width: 150px; height:150px;padding:20px;">
@@ -98,10 +100,24 @@
                       Donate now</button></h5>
                     <h5>{{k.type}}</h5>     
            </div> 
+       </div> 
        </div>
+         
+      <div class="panel-body" *ngIf="showinkindPageprofile">
+                <h3>Add a New Donation Other Than List Above</h3>
+              <div class="form-group" col-md-8>
+                  <label for="type" class="">Inkind Donations</label>
+                  <input type="text" #addtype
+                 class="form-control"
+                 placeholder="Type donation other than above"
+                 name="type"
+                 ngModel
+                 required> <button class="btn btn-primary"
+                 (click)=addDonation(addtype.value)>Add </button>
+              </div>
         </div>
-       
-            <div class="panel-body"  *ngIf="donateDetail">
+    
+         <div class="panel-body"  *ngIf="donateDetail">
                     <h2 style="text-align: center; margin:0px;color: brown;">Donor Details</h2><hr>
                 <form #donateForm="ngForm" (ngSubmit)= "saveKindDonation()">
                     <div class="form-group">
@@ -133,7 +149,7 @@
                         <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="text" class="form-control" id="email" placeholder="Enter Useremail"
-                         name="useremail" [(ngModel)]="donate.useremail"required>
+                         name="useremail" [(ngModel)]="donate.useremail"required email>
                       </div>
                       <div class="form-group">
                         <label for="item">Donation Item:</label> 
@@ -152,7 +168,8 @@
                       </div>
 
                       <div class="form-group">
-                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="submit" class="btn btn-primary" style="width:80px;"
+                         [disabled]="!donateForm.valid" >submit</button>
                       </div> 
                    </form>
                   </div>

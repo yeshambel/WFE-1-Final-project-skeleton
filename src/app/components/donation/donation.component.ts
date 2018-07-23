@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Donation } from '../../models/donation';
 import { listService } from '../../services/list.service';
 import { kindService } from '../../services/kind.service';
@@ -72,7 +72,9 @@ export class DonationComponent implements OnInit {
   showCashPageprofile: boolean= true;
   showinkindPageprofile: boolean= false;
   donateDetail: boolean = false;
-  
+  @ViewChild('profileForm') profileForm;
+  @ViewChild('donateForm') donateForm;
+
   
   constructor(private listofDonations:listService,
   private kindofDonations:kindService){ }
@@ -91,9 +93,9 @@ export class DonationComponent implements OnInit {
       if(this.amount !=='0'){
       this.showProfile =true;
       this.showCashPageprofile= false;
-    }else{
+      }else{
       return;
-    }
+      }
     }
     showCashPage(){
       this.showCashPageprofile =!this.showCashPageprofile;
@@ -114,11 +116,18 @@ export class DonationComponent implements OnInit {
     }
     saveDonation(profile):void{
       this.listofDonations.save(this.profile);
-      alert("Thankyou for your donation"); 
+      alert("Thankyou for your donation");
+      // this.profileForm.reset();
     }
     saveKindDonation(donate): void{
       this.kindofDonations.save(this.donate);
       alert("Thankyou for your donation");
-
+      // this.donateForm.reset();
+    }
+    addDonation(type:string){
+      this.kind.push({
+       type:type,
+       image:'evolution.jpg'
+      });
     }
 }

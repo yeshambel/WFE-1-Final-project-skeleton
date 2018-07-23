@@ -1,8 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Donation } from '../models/donation';
+import { Airtable } from '../airtable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
- @Injectable()
+const httpOptions = {
+  headers: new HttpHeaders(
+    {
+    'Authorization': 'Bearer keyKSN5waI74aIlQV'    
+  })
+};
+
+
+@Injectable()
 export class listService {
+   IAirtableRecordurl: any;
+  constructor(private http: HttpClient) { };
+
     private listDonation:Donation[] =[
     {
          id: 1,
@@ -101,5 +114,21 @@ export class listService {
  save(profile:Donation){
    this.listDonation.push(profile);
  }
- 
+   getdata(){
+ this.http.get<Airtable>(this.IAirtableRecordurl, httpOptions).subscribe
+ ((data:Airtable) =>{
+   this.listDonation.splice(0, this.listDonation.length)
+   for(let r of data.records){
+     this.listDonation.push(new Donation(
+       r.fields.id,
+       r.fields.firstname,
+       r.fields.lastname,
+       r.fields.amountdonated,
+       r.fields.cardnumber,
+       r.fields.useremail,
+       r.fields.credit
+     ));
+   }
+ });
+}
 }
