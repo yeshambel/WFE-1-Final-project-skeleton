@@ -1,13 +1,26 @@
 <ul>
-    <div class="btn-group">
+    <div>
     <li><button class="btn btn-primary" (click)="showCashPage()" class="cashbtn" >Cash</button></li>
-    <li><button class="btn btn-danger"(click)="showinkindPage()" class="cashbtn">kind</button></li> 
+    <li> &nbsp; &nbsp;<button class="btn btn-primary" (click)="showinkindPage()" class="cashbtn">kind</button></li> 
+
+    <li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <label>Donation:
+      <button class = "btn btn-success" style="width: 100px;">{{amountdonated + estimatedamount}}&#8364;</button>
+      </label>
+    </li>
+    <li> &nbsp;
+        <label>Donors:
+        <button class = "btn btn-danger" style="width: 80px;">#{{counter + counter2}}</button>
+        </label>
+    </li>      
   </div>
   </ul>
 
+
    <h3 class="information" *ngIf="showProfile"> The amount you donated is:
        <span style="color: brown"><b>{{amount}} &#8364;</b></span>. We kindly request you 
-       to fill this form and submit by clicking the save button too.
+       to fill this form and submit by clicking the submit button too.
    </h3 >
 
 <div class="donate" *ngIf="showCashPageprofile">
@@ -38,7 +51,7 @@
 </div >
   
   <div class="panel-body" *ngIf="showProfile">
-      <form #profileForm="ngForm" (ngSubmit)="saveDonation()"> 
+      <form #profileForm="ngForm" (ngSubmit)="saveDonation(profile)"> 
           <div class="form-group">
               <label for="fname">First Name:</label>
               <input type="text"  class="form-control" id="fname" placeholder="Enter fname" 
@@ -83,7 +96,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary" style="width:80px;"
-               [disabled]="!profileForm.valid" >Submit</button>
+               [disabled]="!profileForm.valid" > <i class="fas fa-save"></i>Submit</button>
             </div>
          </form>
         </div>
@@ -119,7 +132,7 @@
     
          <div class="panel-body"  *ngIf="donateDetail">
                     <h2 style="text-align: center; margin:0px;color: brown;">Donor Details</h2><hr>
-                <form #donateForm="ngForm" (ngSubmit)= "saveKindDonation()">
+                <form #donateForm="ngForm" (ngSubmit)= "saveKindDonation(donate)">
                     <div class="form-group">
                         <label for="fname">First Name:</label>
                         <input type="text"  class="form-control" id="fname" placeholder="Enter fname" 
@@ -133,10 +146,10 @@
                       </div>
                       
                         <div class="form-group">
-                        <label for="homeadress">Home Adress:</label>
-                        <input type="text"class="form-control" id="homeadress" placeholder="Home adress" 
-                        name="homeadress" 
-                          required [(ngModel)]="donate.homeadress">
+                        <label for="homeaddress">Home Address:</label>
+                        <input type="text"class="form-control" id="homeaddress" placeholder="Home address" 
+                        name="homeaddress" 
+                          required [(ngModel)]="donate.homeaddress">
                          </div>
 
                         <div class="form-group">
@@ -162,14 +175,14 @@
                         <option>Water</option>
                         <option>Drug</option>
                         <option>Food</option>
-                        <option>Church Materials</option>
                         <option>other</option>
+                        <option>Church Materials</option>
                         </select>
                       </div>
 
                       <div class="form-group">
                           <button type="submit" class="btn btn-primary" style="width:80px;"
-                         [disabled]="!donateForm.valid" >submit</button>
+                         [disabled]="!donateForm.valid"><i class="fas fa-save"></i> submit</button>
                       </div> 
                    </form>
                   </div>

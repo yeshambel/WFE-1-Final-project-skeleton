@@ -2,17 +2,15 @@
     <div class="toolbar">
            
         <i (click)="showAbout=true" class="fas fa-info"></i>
-        <b>DONATION App</b>  
-        
-        
+        <b>DONATION App</b>    
     </div>
     <nav>
-            <div class="container-fluid">
-                <ul class="nav2 navbar-nav">
-                    <li><a routerLink="/donation-create">Donation</a>  </li>                    
-                    <li> <a routerLink="/list">list</a></li>
-                </ul>
-                </div>
+        <div class="container-fluid">
+            <ul class="nav2 navbar-nav">
+                <li><a routerLink="/donation-create">Donation</a>  </li>                    
+                <li> <a routerLink="/list">list</a></li>
+            </ul>
+        </div>
     </nav>
     <div class="panel">
             <router-outlet></router-outlet>

@@ -1,9 +1,12 @@
 export class Kind {
-  firstname: string ;
-  lastname: string ;
-  homeadress:string;
-  estimatedamount: number ;
-  useremail: string ;
-  item: string ;
-  id:number;
+  
+constructor( 
+  public id:string = undefined,
+  public firstname: string = '',
+  public lastname: string ='',
+  public homeaddress: string = '' ,
+  public estimatedamount: number = undefined,
+  public useremail: string ='',
+  public item: string = ''  
+){}
 }

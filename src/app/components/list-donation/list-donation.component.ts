@@ -11,31 +11,17 @@ import { Kind } from '../../models/kind';
   styleUrls: ['./list-donation.component.css']
 })
 export class ListDonationComponent implements OnInit {
-    list_Donation: boolean= false;
     list:Donation[];
     kindList:Kind[];
-    amountdonated = 0;
-    counter = 0;
-    
-    
-
+  
   constructor(private listofDonations:listService,
    private kindofDonations:kindService) {    
-  }
+     listofDonations.getdata();
+     kindofDonations.getdata();
+   }
 
   ngOnInit() {
-  //  this.getdata();
     this.list = this.listofDonations.getDonation();
     this.kindList = this.kindofDonations.getkindDonation();  
-    for(let lis of this.list){
-      this.amountdonated+= lis.amountdonated;
-      console.log(this.amountdonated);
-      this.counter++;
-      }
-      let average = (this.amountdonated)/this.counter;
   } 
-  // getdata(): void {
-  //   this.listofDonations.getdata()
-  //   .subscribe(this.list => this.list = this.listofDonations);
-  // }
 }

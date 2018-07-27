@@ -11,7 +11,7 @@ import { Kind } from '../../models/kind';
 })
 export class DonationComponent implements OnInit {
   private profile:Donation= {
-    id:undefined,
+    id:null,
     firstname:null,
     lastname:null,
     amountdonated:null,
@@ -21,9 +21,9 @@ export class DonationComponent implements OnInit {
    
   };
   private donate:Kind ={
-    firstname: null,
+  firstname: null,
   lastname: null,
-  homeadress:null,
+  homeaddress:null,
   estimatedamount: null,
   useremail: null,
   item: null,
@@ -74,14 +74,35 @@ export class DonationComponent implements OnInit {
   donateDetail: boolean = false;
   @ViewChild('profileForm') profileForm;
   @ViewChild('donateForm') donateForm;
+  amountdonated:number = 0;
+  estimatedamount:number = 0;
+  counter: number = 0;
+  counter2:number = 0;
+  cash: Donation[];
+  kinddonation:Kind[];
 
   
   constructor(private listofDonations:listService,
-  private kindofDonations:kindService){ }
+  private kindofDonations:kindService){
+    listofDonations.getdata();
+    kindofDonations.getdata();
+
+      
+   }
 
   ngOnInit() {
+    this.cash = this.listofDonations.getDonation();
+    for(let lis of this.cash){
+      this.amountdonated+= lis.amountdonated;
+      this.counter++;
+      }
+    this.kinddonation = this.kindofDonations.getkindDonation();
+    for(let kin of this.kinddonation){
+      this.estimatedamount+= kin.estimatedamount;
+      this.counter2++;
+      }
   }
-    getamout(){return this.amount;}
+    getamount(){return this.amount;}
     insert(x: number) {
       if (this.amount === '0') {
         this.amount = x.toString();  
@@ -115,14 +136,33 @@ export class DonationComponent implements OnInit {
       this.showCashPageprofile = false;
     }
     saveDonation(profile):void{
-      this.listofDonations.save(this.profile);
+      let donations = new Donation(
+        '-',
+        profile.firstname,
+        profile.lastname,
+        profile.amountdonated,
+        profile.cardnumber,
+        profile.useremail,
+        profile.credit
+      );
+      this.listofDonations.submit(donations);
       alert("Thankyou for your donation");
-      // this.profileForm.reset();
+      this.profileForm.reset();
+      
     }
-    saveKindDonation(donate): void{
-      this.kindofDonations.save(this.donate);
+    saveKindDonation(donate):void{
+      let kinds = new Kind(
+        '-',
+        donate.firstname,
+        donate.lastname,
+        donate.homeaddress,
+        donate.estimatedamount,
+        donate.useremail,
+        donate.item
+      );
+      this.kindofDonations.submit(kinds);
       alert("Thankyou for your donation");
-      // this.donateForm.reset();
+      this.donateForm.reset();
     }
     addDonation(type:string){
       this.kind.push({
@@ -130,4 +170,5 @@ export class DonationComponent implements OnInit {
        image:'evolution.jpg'
       });
     }
+    
 }

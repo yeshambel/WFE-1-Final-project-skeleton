@@ -1,6 +1,6 @@
 export class Donation {
  constructor(
-  public id: number = undefined,
+  public id:string = undefined,
   public firstname: string = '',
   public lastname: string ='',
   public amountdonated: number = undefined ,
