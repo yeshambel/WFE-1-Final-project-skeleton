@@ -10,23 +10,19 @@ const httpOptions = {
   })
 };
 
-
 @Injectable()
 export class listService {
- public amountdonated: number = 0;
+  private listDonation:Donation[] =[];
+  public amountdonated: number = 0;
   public counter:number = 0;
   listDonatioinUrl: any = 'https://api.airtable.com/v0/appcGEyxRRjHCv3v5/Donations';
   constructor(private http: HttpClient) { };
   
-
-    private listDonation:Donation[] =[];
-
  getDonation():Donation[]{
    return this.listDonation;
  }
-
  submit(profile:Donation){
-  this.http.post<Airtable>(this.listDonatioinUrl, {fields: { 
+ return this.http.post<Airtable>(this.listDonatioinUrl, {fields: { 
     firstname:profile.firstname,
     lastname:profile.lastname,
     amountdonated:profile.amountdonated,
@@ -40,23 +36,20 @@ export class listService {
  
  }
   getdata(){
-  this.http.get<Airtable>(this.listDonatioinUrl,httpOptions).subscribe
+ return this.http.get<Airtable>(this.listDonatioinUrl,httpOptions).subscribe
  ((data:Airtable) =>{
    this.listDonation.splice(0, this.listDonation.length)
-   for(let r of data.records){
+   for(let record of data.records){
      this.listDonation.push(new Donation(
-       r.id,
-       r.fields.firstname,
-       r.fields.lastname,
-       r.fields.amountdonated,
-       r.fields.cardnumber,
-       r.fields.useremail,
-       r.fields.credit
-     ));
-     
+       record.id,
+       record.fields.firstname,
+       record.fields.lastname,
+       record.fields.amountdonated,
+       record.fields.cardnumber,
+       record.fields.useremail,
+       record.fields.credit
+     ));  
    }
-  // console.log("GETTING DATA");
-  // console.log("GOT DATA!");
  });
 }
 }

@@ -37,19 +37,17 @@ export class kindService {
   this.http.get<Airtable>(this.kindDonationurl,httpOptions).subscribe
  ((data:Airtable) =>{
    this.kindDonation.splice(0, this.kindDonation.length)
-   for(let r of data.records){
+   for(let record of data.records){
      this.kindDonation.push(new Kind(
-       r.id,
-       r.fields.firstname,
-       r.fields.lastname,
-       r.fields.homeaddress,
-       r.fields.estimatedamount,
-       r.fields.useremail,
-       r.fields.item
+       record.id,
+       record.fields.firstname,
+       record.fields.lastname,
+       record.fields.homeaddress,
+       record.fields.estimatedamount,
+       record.fields.useremail,
+       record.fields.item
      ));
    }
-  //  console.log("GOT DATA!");
-  // console.log("GETTING DATA");
  });
 }
 }

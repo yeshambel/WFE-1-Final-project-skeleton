@@ -13,15 +13,17 @@ import { Kind } from '../../models/kind';
 export class ListDonationComponent implements OnInit {
     list:Donation[];
     kindList:Kind[];
-  
+
   constructor(private listofDonations:listService,
-   private kindofDonations:kindService) {    
-     listofDonations.getdata();
-     kindofDonations.getdata();
-   }
+              private kindofDonations:kindService)
+               {    
+               listofDonations.getdata();
+               kindofDonations.getdata();
+             }
 
   ngOnInit() {
-    this.list = this.listofDonations.getDonation();
+     this.list = this.listofDonations.getDonation();
     this.kindList = this.kindofDonations.getkindDonation();  
   } 
+ 
 }

@@ -72,6 +72,8 @@ export class DonationComponent implements OnInit {
   showCashPageprofile: boolean= true;
   showinkindPageprofile: boolean= false;
   donateDetail: boolean = false;
+  goback: boolean = false;
+  gobackkindprofile: boolean = false;
   @ViewChild('profileForm') profileForm;
   @ViewChild('donateForm') donateForm;
   amountdonated:number = 0;
@@ -146,9 +148,14 @@ export class DonationComponent implements OnInit {
         profile.credit
       );
       this.listofDonations.submit(donations);
-      alert("Thankyou for your donation");
-      this.profileForm.reset();
-      
+      this.goback = true
+      this.showProfile = false;
+      this.profileForm.reset(); 
+    }
+    back(){
+      this.goback = false;
+      this.showCashPageprofile = true;
+
     }
     saveKindDonation(donate):void{
       let kinds = new Kind(
@@ -161,8 +168,14 @@ export class DonationComponent implements OnInit {
         donate.item
       );
       this.kindofDonations.submit(kinds);
-      alert("Thankyou for your donation");
+      this.gobackkindprofile = true;
+      this.donateDetail = false;
       this.donateForm.reset();
+    }
+
+    backKindProfile(){
+      this.gobackkindprofile = false;
+      this.showinkindPageprofile = true;
     }
     addDonation(type:string){
       this.kind.push({

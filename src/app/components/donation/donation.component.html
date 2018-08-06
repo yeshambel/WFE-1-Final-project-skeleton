@@ -100,6 +100,14 @@
             </div>
          </form>
         </div>
+
+        <div style="background-color:rgba(223,223,223, 0.5);padding-top: 25px; color:blue; margin-left: 35px; 
+          margin-right: 35px; text-align: center; height: 150px;vertical-align: middle;" *ngIf="goback">
+         <h2>Thank you very Much for Your Donation</h2>
+        <footer style="text-align: center; padding-top: 25px;" >
+         <button type="button" class="btn btn-success" style="width:80px;" (click)="back()">Go Back</button>
+        </footer>
+        </div>
   
         <div  *ngIf="showinkindPageprofile">
             <h1 style="color: crimson;text-align: center;">Donate Now</h1>
@@ -135,13 +143,13 @@
                 <form #donateForm="ngForm" (ngSubmit)= "saveKindDonation(donate)">
                     <div class="form-group">
                         <label for="fname">First Name:</label>
-                        <input type="text"  class="form-control" id="fname" placeholder="Enter fname" 
+                        <input type="text"  class="form-control" id="fname" placeholder="Enter First name" 
                         name="firstname" [(ngModel)]= "donate.firstname" required>
                       </div>
           
                       <div class="form-group">
                         <label for="lname">Last Name:</label>
-                        <input type="text" class="form-control" id="lname" placeholder="Enter lname"
+                        <input type="text" class="form-control" id="lname" placeholder="Enter last name"
                          name="lastname"[(ngModel)]= "donate.lastname" required>
                       </div>
                       
@@ -186,6 +194,15 @@
                       </div> 
                    </form>
                   </div>
+
+             <div style="background-color:rgba(223,223,223, 0.5); padding-top: 20px; color:blue; margin-left: 35px; 
+                  margin-right: 35px; text-align: center; height: 150px;vertical-align: middle;" 
+                  *ngIf="gobackkindprofile">
+                 <h2>Thank you very Much for Your Donation</h2>
+                 <div style="text-align: center; padding-top: 25px;">
+                 <button type="button" class="btn btn-success" style="width:80px;" (click)="backKindProfile()">Go Back</button>
+                </div>
+                </div>
 
             
         
