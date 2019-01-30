@@ -11,6 +11,7 @@ import { Kind } from '../../models/kind';
   styleUrls: ['./list-donation.component.css']
 })
 export class ListDonationComponent implements OnInit {
+  
     list:Donation[];
     kindList:Kind[];
 
@@ -25,5 +26,7 @@ export class ListDonationComponent implements OnInit {
      this.list = this.listofDonations.getDonation();
     this.kindList = this.kindofDonations.getkindDonation();  
   } 
- 
+  // deleteDonation(){
+  //   this.listofDonations.deleteDonation(this.list.id);
+  // }
 }

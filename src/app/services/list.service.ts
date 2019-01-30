@@ -52,4 +52,7 @@ export class listService {
    }
  });
 }
+deleteDonation(id:string){
+return this.http.delete<void>(`${this.listDonatioinUrl}/{id}`)
+}
 }
